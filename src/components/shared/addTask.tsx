@@ -25,7 +25,7 @@ export const AddTask: React.FC<Props> = ({ className, setValue, value, addTaks }
                     onChange={(e) => setValue(e.target.value)}
                 />
 
-                <Button type='submit' className='w-full mt-5 p-6'>Создать задау</Button>
+                <Button type='submit' className='w-full mt-5 p-6'>Создать задачу</Button>
 
             </form>
         </Container>
