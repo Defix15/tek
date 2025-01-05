@@ -128,9 +128,14 @@ export const Task: React.FC<Props> = (
                     )}
 
                     {task?.status === 'IN_PROGRESS' && session?.user.id === task?.assigneeId && (
-                        <Button onClick={() => handleNewStatusTask(task, 'COMPLETED')}>
-                            Завершить
-                        </Button>
+                        <div className='flex flex-col gap-2'>
+                            <Button onClick={() => handleNewStatusTask(task, 'COMPLETED')}>
+                                Завершить
+                            </Button>
+                            <Button onClick={() => handleNewStatusTask(task, 'ACTIVE')}>
+                             Отменить
+                            </Button>
+                        </div>
                     )}
 
                     {task?.status === 'COMPLETED' && (
