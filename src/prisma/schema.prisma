@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  username       String 
+  email          String    @unique
+  password       String
+
+  tasks          Task[]    @relation("AuthorTasks") 
+  assignedTasks  Task[]    @relation("AssigneeTasks")
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Task {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String?
+  status       TaskStatus @default(ACTIVE)
+
+  authorId     String     @db.ObjectId
+  author       User       @relation("AuthorTasks", fields: [authorId], references: [id], onDelete: Cascade)
+  
+  assigneeId   String?    @db.ObjectId
+  assignee     User?      @relation("AssigneeTasks", fields: [assigneeId], references: [id], onDelete: SetNull)
+
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+enum TaskStatus {
+  ACTIVE
+  IN_PROGRESS
+  COMPLETED
+}

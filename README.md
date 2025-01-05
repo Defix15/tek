@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Почему эти технологии?
 
-## Getting Started
+Эти технологии выбраны, чтобы разработка шла быстрее и удобнее, а сайт был надежным и безопасным.
 
-First, run the development server:
+Next.js помогает легко создавать динамичные сайты, улучшая скорость загрузки и SEO (чтобы сайт был выше в поиске).
+Prisma — это инструмент для работы с базой данных, он упрощает написание запросов и делает код чище.
+MongoDB — это база данных, которая хранит данные в виде документов, что удобно для гибкой структуры данных.
+Tailwind CSS — фреймворк для стилей, который позволяет быстро и просто делать красивый дизайн с помощью готовых классов.
+ShadCN и React Icons — дают уже готовые компоненты интерфейса и иконки, чтобы не тратить время на их создание.
+TypeScript добавляет проверку типов в код, чтобы легче было ловить ошибки до того, как сайт выйдет.
+bcryptjs — это библиотека для безопасного хэширования паролей, чтобы они не попали в руки злоумышленников.
+NextAuth — помогает сделать удобную и безопасную систему входа и регистрации для пользователей.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Что это за технологии?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js — фреймворк для React, который помогает создавать сайты с серверной стороной (не только на клиенте) и улучшает SEO.
+Prisma — это инструмент, который упрощает работу с базой данных (например, MongoDB), помогая делать запросы к базе быстрее и безопаснее.
+MongoDB — это база данных, которая хранит информацию в виде документов, что удобно для гибкой работы с данными.
+Tailwind CSS — набор CSS-классов для быстрого создания стилей на странице, помогает сделать сайт красивым, не тратя много времени.
+ShadCN — это набор готовых компонентов для интерфейса, которые легко использовать в проекте.
+React Icons — библиотека иконок для React, позволяет быстро добавлять иконки в приложение.
+TypeScript — это расширенная версия JavaScript, которая добавляет типизацию, чтобы избежать ошибок при написании кода.
+bcryptjs — библиотека для безопасного хэширования паролей, чтобы они не были доступны в обычном виде.
+NextAuth — библиотека для авторизации пользователей в Next.js, упрощает процесс входа и регистрации с поддержкой разных сервисов.
