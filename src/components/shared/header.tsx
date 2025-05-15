@@ -29,7 +29,7 @@ export const Header: React.FC<Props> = ({ className }) => {
             <Container>
                 <div className='flex items-center justify-between'>
                     <Link href="/" className="flex items-center gap-2">
-                        <span className="font-semibold text-2xl">ChatGPT</span>
+                        <span className="font-semibold text-2xl">SCloud</span>
                     </Link>
 
                     {status === 'loading' ? 

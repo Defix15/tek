@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { Providers } from "@/components/shared/provider";
 
 export const metadata: Metadata = {
-  title: "Todo",
+  title: "SCloud",
   description: "Todo!",
 };
 

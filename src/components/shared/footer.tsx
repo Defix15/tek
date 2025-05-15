@@ -11,7 +11,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
         <div className={cn('bg-[#e3e3e3] p-5 rounded-[12px] mt-[20px] mx-2 mb-2', className)}>
             <Container>
                 <div className='flex items-center justify-between'>
-                    <p>ИП &quot;ООО&quot; &quot;ЧатГПТ&quot;</p>
+                    <p>ИП &quot;ООО&quot; &quot;Денис Харитонов Алексеевич&quot;</p>
                 </div>
             </Container>
         </div>
