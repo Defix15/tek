@@ -18,6 +18,21 @@ export async function PUT(request: Request) {
 
     try {
 
+        if(newStatus === 'ACTIVE') {
+            const statusTask = await prisma.task.update({
+                where: {
+                    id: idTask.id
+                },
+                data: {
+                    status: newStatus,
+                    assigneeId: null
+                }
+            }) 
+
+            return NextResponse.json({ message: "Task updated successfully.", statusTask }, { status: 200 });
+        } 
+
+
         const statusTask = await prisma.task.update({
             where: {
                 id: idTask.id

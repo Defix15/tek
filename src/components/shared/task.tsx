@@ -31,6 +31,13 @@ export const Task: React.FC<Props> = (
     const [openEdit, setOpenEdit] = useState(false);
     const [editValue, setEditValue] = useState(task?.title);
     const inputRef = useRef<HTMLInputElement>(null);
+    const [assigneeText, setAssigneeText] = useState(task?.assignee?.username);
+
+    useEffect(() => {
+        if (task?.assignee) {
+            setAssigneeText(task?.assignee.username);
+        }
+    }, [task?.assignee]);
 
     useEffect(() => {
         if (openEdit && inputRef.current) {
@@ -100,10 +107,10 @@ export const Task: React.FC<Props> = (
 
             <h2 className='text-base font-bold flex items-center gap-1'>
                 {task?.author?.username}
-                {task?.assignee?.username &&
+                {assigneeText &&
                     <>
                         <IoIosArrowForward />
-                        <span className='text-gray-500'>{task?.assignee?.username}</span>
+                        <span className='text-gray-500'>{assigneeText}</span>
                     </>
                 }
             </h2>
@@ -132,7 +139,7 @@ export const Task: React.FC<Props> = (
                             <Button onClick={() => handleNewStatusTask(task, 'COMPLETED')}>
                                 Завершить
                             </Button>
-                            <Button onClick={() => handleNewStatusTask(task, 'ACTIVE')}>
+                            <Button onClick={() => (handleNewStatusTask(task, 'ACTIVE'))}>
                              Отменить
                             </Button>
                         </div>

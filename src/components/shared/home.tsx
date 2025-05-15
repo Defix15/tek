@@ -60,7 +60,7 @@ export const Home: React.FC<Props> = ({ className }) => {
                     assigneeId: session?.user.id || '',
                     assignee: {
                         id: session?.user.id || '',
-                        username: session?.user.username || ''
+                        username: newStatus === 'ACTIVE' ? '' : session?.user.username || '',
                     }
                 } 
                 : task
