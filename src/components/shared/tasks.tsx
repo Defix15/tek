@@ -33,7 +33,7 @@ export const Tasks: React.FC<Props> = (
     return (
         <div className={cn('mt-10', className)}>
             <Container>
-                <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
+                <div className='grid grid-cols-1 gap-3 lg:grid-cols-3'>
 
                     <CardTask 
                         name='Активные' 

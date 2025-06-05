@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { Toaster } from 'react-hot-toast';
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Todo!",
 };
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -26,7 +26,7 @@ export const CardTask: React.FC<Props> = (
     }) => {
     
     return (
-        <div className={cn('bg-[#ededed] p-5 rounded-[10px]', className)}>
+        <div className={cn('bg-[#ededed] p-3 rounded-[10px]', className)}>
                 <h2 className='text-lg font-bold'>{name}</h2>
 
                 <div className='mt-[10px] flex flex-col gap-[10px] h-[400px] lg:h-[685px] overflow-y-auto scrollbar'>

@@ -5,6 +5,7 @@ import { Tasks } from './tasks';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
+import { useUserFetch } from '../api/user';
 
 interface Props {
     className?: string;
@@ -19,16 +20,21 @@ export interface TaskAdds {
     author: {
         id: string;
         username: string;
+        role: string;
+        avatar: string | null;
     };
     assignee: {
         id: string;
         username: string;
+        role: string;
+        avatar: string | null;
     }
 }
 
 export const Home: React.FC<Props> = ({ className }) => {
 
     const {data: session}  = useSession();
+    const { user } = useUserFetch();
 
     const [text, setText] = useState('');
 
@@ -61,6 +67,8 @@ export const Home: React.FC<Props> = ({ className }) => {
                     assignee: {
                         id: session?.user.id || '',
                         username: newStatus === 'ACTIVE' ? '' : session?.user.username || '',
+                        role: session?.user.role || '',
+                        avatar: user?.avatar || ''
                     }
                 } 
                 : task
@@ -92,8 +100,8 @@ export const Home: React.FC<Props> = ({ className }) => {
                 title: text,
                 status: 'ACTIVE',
                 authorId: session?.user.id,
-                author: { id: session?.user.id, username: session?.user.username },
-                assignee: { id: '', username: '' },
+                author: { id: session?.user.id, username: session?.user.username , role: session?.user.role, avatar: user?.avatar || '' },
+                assignee: { id: '', username: '', role: '', avatar: '' },
                 assigneeId: '',
             };
 
@@ -105,7 +113,7 @@ export const Home: React.FC<Props> = ({ className }) => {
             if(res.status === 200) {
                 const taskMain = {
                     ...res.data.task,
-                    author: { id: session?.user.id, username: session?.user.username },
+                    author: { id: session?.user.id, username: session?.user.username, role: session?.user.role, avatar: user?.avatar || '' },
                 }
                 setTasks([taskMain, ...tasks]);
                 toast.success('Задача добавлена');

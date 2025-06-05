@@ -2,15 +2,23 @@
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { signIn } from 'next-auth/react';
-import { useRouter } from "next/navigation";
+import { signIn, useSession } from 'next-auth/react';
+import {  useRouter } from "next/navigation";
 
 export default function Register() {
 
-    const route = useRouter();
+     const { status } = useSession();
+      const route = useRouter();
+    
+      useEffect(() => {
+        if (status === "authenticated") {
+          route.replace("/main");
+        }
+      }, [status, route]);
+
 
     const [formData, setFormData] = useState({
         email: "",
@@ -46,7 +54,7 @@ export default function Register() {
         } 
 
         toast.success("User registered successfully.");
-        route.replace('/');
+        route.replace('/main');
 
        } catch (error) {
         console.error("Error registering user:", error);

@@ -9,6 +9,7 @@ declare module "next-auth" {
       id: string;
       email: string;
       username: string;
+      role: string;
     };
   }
 
@@ -16,6 +17,7 @@ declare module "next-auth" {
     id: string;
     email: string;
     username: string;
+    role: string;
   }
 }
 
@@ -51,7 +53,8 @@ export const authOptions: AuthOptions = {
         return {
           id: String(fintUser.id),
           username: fintUser.username,
-          email: fintUser.email
+          email: fintUser.email,
+          role: fintUser.role
         }
 
       }
@@ -76,6 +79,7 @@ export const authOptions: AuthOptions = {
         token.id = user.id;
         token.email = user.email;
         token.username = user.username;
+        token.role = user.role;
       }
       return token;
     },
@@ -84,6 +88,7 @@ export const authOptions: AuthOptions = {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
         session.user.username = token.username as string;
+        session.user.role = token.role as string;
       }
       return session;
     },
